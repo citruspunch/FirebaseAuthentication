@@ -1,16 +1,17 @@
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
-import dotenv from 'dotenv'; 
-dotenv.config();
+//import dotenv from 'dotenv'; 
+//dotenv.config();
 
 const firebaseConfig = {
-  apiKey: process.env.VITE_APP_FIREBASE_API_KEY,
-  authDomain: process.env.VITE_APP_FIREBASE_AUTH_DOMAIN,
-  projectId: process.env.VITE_APP_FIREBASE_PROJECT_ID,
-  storageBucket: process.env.VITE_APP_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: process.env.VITE_APP_FIREBASE_MESSAGING_SENDER_ID,
-  appId: process.env.VITE_APP_FIREBASE_APP_ID
+  apiKey: "AIzaSyCIqcZWYgD4AYfq1uXq1310Ko5nYsJhwDY",
+  authDomain: "lab-9---firebase-auth-react.firebaseapp.com",
+  projectId: "lab-9---firebase-auth-react",
+  storageBucket: "lab-9---firebase-auth-react.firebasestorage.app",
+  messagingSenderId: "291568402867",
+  appId: "1:291568402867:web:2d3787bf8074a6c6438bc6"
 };
 
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
+console.log("Firebase initialized:", auth);

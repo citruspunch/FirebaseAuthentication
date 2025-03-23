@@ -36,10 +36,10 @@ const App: React.FC = () => {
   return (
     <Router>
       <Routes>
+        <Route index path="/" element={user ? <Dashboard /> : <Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/reset-password" element={<PasswordReset />} />
-        <Route path="/" element={user ? <Dashboard /> : <Login />} />
         <Route
           path="/dashboard"
           element={user ? <Dashboard /> : <Navigate to="/" />}
