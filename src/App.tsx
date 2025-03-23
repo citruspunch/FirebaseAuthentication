@@ -17,11 +17,16 @@ const App: React.FC = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    console.log("App mounted");
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      console.log("Auth state changed:", currentUser);
       setUser(currentUser);
       setLoading(false);
     });
-    return () => unsubscribe();
+    return () => {
+      console.log("App unmounted");
+      unsubscribe();
+    };
   }, []);
 
   if (loading) {
