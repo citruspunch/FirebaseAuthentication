@@ -17,6 +17,7 @@ import {
   InputGroup,
   Link,
   Box,
+  Text,
 } from "@chakra-ui/react";
 import { ColorModeButton, useColorModeValue } from "./ui/color-mode";
 import { LuUser } from "react-icons/lu";
@@ -125,7 +126,9 @@ const Login: React.FC = () => {
           <FaGithub /> Sign in with Github
         </Button>
         <Flex justifyContent="center" mt={2}>
-          <span style={{ marginRight: "5px", color: "#666" }}>Don't have an account?</span>
+          <Text mr={2} color="gray.500">
+            Don't have an account?
+          </Text>
           <Link
             as={RouterLink}
             to="/register"
