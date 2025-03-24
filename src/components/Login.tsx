@@ -20,13 +20,14 @@ import {
 import { ColorModeButton, useColorModeValue } from "./ui/color-mode";
 import { LuUser } from "react-icons/lu";
 import { Link as RouterLink } from "react-router-dom";
+import { FaGoogle, FaGithub } from "react-icons/fa";
 
 const Login: React.FC = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
-  const formBackground = useColorModeValue('gray.100', 'gray.700');
+  const formBackground = useColorModeValue('gray.100', 'gray.900');
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -60,8 +61,8 @@ const Login: React.FC = () => {
 
   return (
     <Flex h="100vh" alignItems="center" justifyContent="center">
-      <Flex flexDirection="column" p={12} bg={formBackground} borderRadius={8} boxShadow="lg">
-        <Heading fontSize={50} mb={6}>
+      <Flex flexDirection="column" p={12} bg={formBackground} borderRadius={8} boxShadow="lg" w="500px" maxW="90%">
+        <Heading fontWeight={"bold"} fontSize={50} mb={8}>
           Login
         </Heading>
         <Field.Root mb={6} required>
@@ -102,23 +103,32 @@ const Login: React.FC = () => {
           Reset Password
         </Link>
 
-        <Button colorPalette="teal" mb={2}>
+        <Button colorPalette="teal" mb={2} onClick={handleLogin}>
           Log In
         </Button>
-        <Button
-          colorPalette="teal"
-          mb={2}
-          onClick={() => navigate("/register")}
-        >
-          Register
+        <Flex alignItems="center" my={4}>
+          <hr style={{ flex: 1, border: "none", borderTop: "1px solid #ccc" }} />
+          <span style={{ margin: "0 10px", color: "#666" }}>or</span>
+          <hr style={{ flex: 1, border: "none", borderTop: "1px solid #ccc" }} />
+        </Flex>
+        <Button colorPalette="blue" mb={2} onClick={handleGoogleLogin}>
+          <FaGoogle />Sign in with Google
         </Button>
-        <Button colorPalette="teal" mb={2} onClick={handleGoogleLogin}>
-          Sign in with Google
+        <Button colorPalette="gray" mb={2} onClick={handleGithubLogin}>
+          <FaGithub /> Sign in with Github
         </Button>
-        <Button colorPalette="teal" mb={2} onClick={handleGithubLogin}>
-          Sign in with Github
-        </Button>
-        <Fieldset.Root display="flex" alignItems="center">
+        <Flex justifyContent="center" mt={2}>
+          <span style={{ marginRight: "5px", color: "#666" }}>Don't have an account?</span>
+          <Link
+            as={RouterLink}
+            to="/register"
+            color="teal.500"
+            fontWeight="bold"
+          >
+            Register
+          </Link>
+        </Flex>
+        <Fieldset.Root display="flex" alignItems="center" mt={4}>
           <ColorModeButton />
         </Fieldset.Root>
       </Flex>
