@@ -1,7 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
-//import dotenv from 'dotenv'; 
-//dotenv.config();
+// import dotenv from 'dotenv'; 
+// dotenv.config();
 
 const firebaseConfig = {
   apiKey: "AIzaSyCIqcZWYgD4AYfq1uXq1310Ko5nYsJhwDY",
@@ -14,4 +14,3 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
-console.log("Firebase initialized:", auth);
