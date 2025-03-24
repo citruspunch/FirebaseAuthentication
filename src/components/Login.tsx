@@ -16,6 +16,7 @@ import {
   Field,
   InputGroup,
   Link,
+  Box,
 } from "@chakra-ui/react";
 import { ColorModeButton, useColorModeValue } from "./ui/color-mode";
 import { LuUser } from "react-icons/lu";
@@ -102,6 +103,12 @@ const Login: React.FC = () => {
         >
           Reset Password
         </Link>
+
+        {error && (
+          <Box bg="red.200" color="red.700" p={3} borderRadius={4} mb={4}>
+            {error}
+          </Box>
+        )}
 
         <Button colorPalette="teal" mb={2} onClick={handleLogin}>
           Log In
