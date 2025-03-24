@@ -1,54 +1,103 @@
-# React + TypeScript + Vite
+# Firebase Authentication with React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project demonstrates a simple authentication system using **Firebase Authentication**, **React**, **TypeScript**, and **Vite**. It includes features like login, registration, password reset, and a protected dashboard.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Login**: Users can log in with email/password or third-party providers like Google and GitHub.
+- **Registration**: Users can create an account using their email and password.
+- **Password Reset**: Users can reset their password via email.
+- **Protected Dashboard**: Only authenticated users can access the dashboard.
+- **Responsive Design**: Built with Chakra UI for a clean and responsive interface.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Getting Started
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+Follow these steps to run the application locally.
+
+### Prerequisites
+
+- **Node.js**: Ensure you have Node.js installed.
+- **Firebase Project**: Set up a Firebase project and enable **Email/Password**, **Google**, and **GitHub** authentication providers.
+
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/citruspunch/FirebaseAuthentication.git
+   cd FirebaseAuthentication
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Start the development server:
+   ```bash
+   npm run dev
+   ```
+
+4. Open your browser and navigate to `http://localhost:5173`.
+
+---
+
+## Live Preview
+
+You can view a live preview of the application on CodeSandbox:
+
+[![Edit on CodeSandbox](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/p/github/citruspunch/FirebaseAuthentication/main?import=true)
+
+---
+
+## Example Usage
+
+### Login Page
+Users can log in using their email and password or third-party providers like Google and GitHub.
+
+![Login Page Screenshot](public/screenshots/login.png)
+
+### Registration Page
+New users can create an account by providing their email and password.
+
+![Registration Page Screenshot](public/screenshots/register.png)
+
+### Password Reset
+Users can reset their password by entering their email address.
+
+![Password Reset Screenshot](public/screenshots/password-reset.png)
+
+### Dashboard
+Authenticated users can access the dashboard, which displays a welcome message and a logout button.
+
+![Dashboard Screenshot](public/screenshots/dashboard.png)
+---
+
+## Project Structure
+
+```
+src/
+├── components/
+│   ├── Login.tsx          # Login page
+│   ├── Register.tsx       # Registration page
+│   ├── PasswordReset.tsx  # Password reset page
+│   ├── Dashboard.tsx      # Protected dashboard
+│   └── ui/                # UI components
+├── FirebaseConfig.ts      # Firebase configuration
+├── App.tsx                # Main application component
+├── main.tsx               # Application entry point
+index.html                 # HTML template
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Technologies Used
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+- **React**: Frontend library for building user interfaces.
+- **TypeScript**: Strongly typed JavaScript for better development experience.
+- **Vite**: Fast build tool for modern web projects.
+- **Firebase Authentication**: Backend service for user authentication.
+- **Chakra UI**: Component library for responsive and accessible design.
+
+---
